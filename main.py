@@ -1,7 +1,5 @@
 #Ignore the messy import statements, this is mostly used to debug and makes life easy with docker
 import nextcord
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, date
 from nextcord.ext import commands
 from nextcord.ext import *
@@ -18,14 +16,24 @@ from files.channelcheck import channelcheck
 #################################################
 #PUT YOUR BOT ID DOWN BELOW
 botID = " "
-intents = nextcord.Intents.default()
-intents.members = True
 #################################################
 
 #################################################
-#PUT YOUR PREFIX DOWN BELOW
+#PUT YOUR PREFIX DOWN BELOW [default = !]
 commandPrefix = '!'
 #################################################
+
+#################################################
+#This is just to handle DMs, it sets up the dm in a nice format
+#and plops it in a channel of your choice
+#If you want to use this, place the prefered channel ID below
+pmChannel = 0
+#################################################
+
+
+#Ignore this unless you know what you are doing
+intents = nextcord.Intents.default()
+intents.members = True
 
 
 #Sets the "Activity" of the bot, defaults to 'Playing' but can be changed
@@ -42,10 +50,7 @@ async def on_ready():
 
 @pandabot.event
 async def on_message(message):
-    #This is just to handle DMs, it sets up the dm in a nice format and plops it in a channel of your choice
-    #If you want to use this, place the prefered channel ID below
-    pmChannel = 0
-
+    #Checks if the message was sent in a DM or public channel
     ifdm = channelcheck(message.channel)
     if ifdm == True and message.author != pandabot.user:
         today = date.today()
