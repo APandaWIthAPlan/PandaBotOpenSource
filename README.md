@@ -18,22 +18,32 @@ Q: Why is this badly coded
 
 A: Thats how I roll
 
+
 Q: Why is there a mp4 file and is it needed?
 
 A: Yes
+
 
 Q: My bot crashes after awhile and I want to keep it up 24/7
 
 A: Use docker
 
+
 Q: How do I keep my bot from crashing without docker?
 
 A: Use docker
+
 
 Q: How do I use docker?
 
 A: Good luck
 
+
 Q: Should I buy [merch](https://www.redbubble.com/people/APandaWithAPlan/shop?utm_source=rb-native-app&utm_campaign=share-artist&utm_medium=ios)?
 
 A: Yes
+
+
+Q: Why is this documentation terrible?
+
+A: Idk man I typed this out while sitting in a class I was too bored to pay attention to
