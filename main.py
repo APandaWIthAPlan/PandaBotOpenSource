@@ -52,16 +52,21 @@ async def on_ready():
 async def on_message(message):
     #Checks if the message was sent in a DM or public channel
     ifdm = channelcheck(message.channel)
-    if ifdm == True and message.author != pandabot.user:
+
+    ###########################################################
+    #If message was detected as a DM and pmChannel is not equal to 0
+    if ifdm == True and message.author != pandabot.user and pmChannel != 0:
         today = date.today()
         now = datetime.now()
         current_time = now.strftime("%H:%M")
         dm = message.channel
-        await dm.send("Hey whats good? Idk what you are asking of me (yet) but ill pass it onto Nick")
+        await dm.send("Hey whats good? Idk what you are asking of me (yet) but ill pass it onto my owner")
         embed = nextcord.Embed(title = 'DM Received', description = f'{message.content}', color = 0x9fffff)
         channel = pandabot.get_channel(pmChannel)
         embed.set_footer(text=f'Sent by {message.author.display_name} | {today} {current_time}')
         await channel.send(embed=embed)
+    ###########################################################
+
 
     #Make sure the bot doesnt run off its own commands, useful later for reactions
     usrname = str(message.author)
