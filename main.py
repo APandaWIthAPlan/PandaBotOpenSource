@@ -10,17 +10,18 @@ from commands.random import coinflip, randomnum
 from commands.rockpapersissors import rps
 from commands.help import *
 from commands.panda import *
+from commands.ratelimit import *
 from files.channelcheck import channelcheck
 
 
 #################################################
 #PUT YOUR BOT ID DOWN BELOW
-botID = " "
+botID = ""
 #################################################
 
 #################################################
 #PUT YOUR PREFIX DOWN BELOW [default = !]
-commandPrefix = '!'
+commandPrefix = ''
 #################################################
 
 #################################################
@@ -34,6 +35,8 @@ pmChannel = 0
 #Ignore this unless you know what you are doing
 intents = nextcord.Intents.default()
 intents.members = True
+intents.messages = True
+intents.message_content = True
 
 
 #Sets the "Activity" of the bot, defaults to 'Playing' but can be changed
@@ -45,7 +48,7 @@ pandabot = commands.Bot(command_prefix='!', intents=intents, activity=activity)
 @pandabot.event
 async def on_ready(): 
     print('We have logged in as {0.user}'.format(pandabot))
-    print("munch")
+    print("testing bot active")
 
 
 @pandabot.event
@@ -95,38 +98,38 @@ async def on_message(message):
         messg = (message.content)
         mssg = messg.lower()
 
-        if (mssg == "!ping"): # PING command
+        if (mssg == commandPrefix+"ping"): # PING command
             await message.channel.send(ping(mssg))
 
-        elif (mssg == "!merch"): # I need to make money somehow
+        elif (mssg == commandPrefix+"merch"): # I need to make money somehow
             await message.channel.send(embed=merch())
 
-        elif (mssg == "!pandacam"): 
+        elif (mssg == commandPrefix+"pandacam"): 
             await message.channel.send(embed=pandacam())
             
-        elif ("!rps" in mssg):
+        elif (commandPrefix+"rps" in mssg):
             rpsresult = rps(mssg)
             if (rpsresult == "bad"):
                 await message.channel.send("You have to pick either Rock, Paper, or Scissors.")
             else:
                 await message.channel.send(embed=rpsresult)
 
-        elif (mssg == "!panda"):
+        elif (mssg == commandPrefix+"panda"):
             await message.channel.send(get_panda()) 
 
-        elif (mssg == "!lore"):
+        elif (mssg == commandPrefix+"lore"):
             lore = "./files/lore.mp4"
             await message.channel.send("Brought to you by Sam L:")
             await message.channel.send(file=nextcord.File(lore))
 
-        elif (mssg == "!coinflip"):
+        elif (mssg == commandPrefix+"coinflip"):
             await message.channel.send(embed=coinflip())
 
-        elif("!random" in mssg or "!roll" in mssg):
+        elif(commandPrefix+"random" in mssg or commandPrefix+"roll" in mssg):
             await message.channel.send(randomnum(mssg))  
   
-        elif ("!help" in mssg or "!commands" in mssg):
-            if (messg == "!help" or mssg == "!commands"):
+        elif (commandPrefix+"help" in mssg or commandPrefix+"commands" in mssg):
+            if (messg == commandPrefix+"help" or mssg == commandPrefix+"commands"):
                 await message.channel.send(embed=helpembed())
             else: 
                 await message.channel.send(help(mssg))
