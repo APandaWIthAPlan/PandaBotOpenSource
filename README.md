@@ -1,5 +1,5 @@
 # Pandabot Open Source
-A slimmed down version of PandaBotV3 that is meant to be messed with and made your own
+A slimmed down version of PandaBotv3 that is meant to be messed with and made your own
 
 Please follow these steps if you want to deploy your own bot
 
