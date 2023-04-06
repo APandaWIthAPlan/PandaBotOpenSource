@@ -23,17 +23,6 @@ Q: Why is there a mp4 file and is it needed?
 
 A: Yes
 
-
-Q: My bot crashes after awhile and I want to keep it up 24/7
-
-A: Use docker
-
-
-Q: How do I keep my bot from crashing without docker?
-
-A: Use docker
-
-
 Q: How do I use docker?
 
 A: Good luck
