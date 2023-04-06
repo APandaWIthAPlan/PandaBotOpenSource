@@ -40,7 +40,7 @@ intents.message_content = True
 
 
 #Sets the "Activity" of the bot, defaults to 'Playing' but can be changed
-activityname = 'Fortnite'
+activityname = ''
 activity = nextcord.Activity(type=nextcord.ActivityType.playing, name=activityname)
 pandabot = commands.Bot(command_prefix='!', intents=intents, activity=activity)
 
@@ -75,14 +75,6 @@ async def on_message(message):
     usrname = str(message.author)
     if message.author == pandabot.user:
         return
-
-    #Gotta leave this in here
-    if usrname == "joshcoriell#9648":
-        thumbsdown = "👎"
-        bread4 = "🍞"
-        await message.add_reaction(thumbsdown)
-        await message.add_reaction(bread4)
-
 
 ############################################################################################
     #This is where the commands start, I made it easy by using elif statements,
@@ -145,14 +137,6 @@ async def on_message(message):
     elif ("panda" in message.content or "Panda" in message.content):
         panda = "🐼"
         await message.add_reaction(panda)
-
-    elif ("bread" in message.content or "Bread" in message.content):
-        bread1 = "🍞"
-        bread2 = "🥖"
-        bread3 = "🥐"
-        await message.add_reaction(bread1)
-        await message.add_reaction(bread2)
-        await message.add_reaction(bread3)
 
     elif ("Damn" in message.content or "damn" in message.content):
         await message.channel.send("https://media.discordapp.net/attachments/884919548061548598/934905967513075742/Kendrick_Lamar_-_Damn.png")
