@@ -8,6 +8,7 @@ Please follow these steps if you want to deploy your own bot
 1. Follow [this guide](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token) to get your bot token ready.
 2. Download the master branch and plop that bot code in the "BotID" section in main.py
 3. [OPTIONAL] Create a PM channel and plop that ID in the "pmChannel" section in main.py
+4. Install requirements.txt
 4. Compile main.py and everything should be good
 
 
