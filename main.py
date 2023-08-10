@@ -21,7 +21,7 @@ botID = ""
 
 #################################################
 #PUT YOUR PREFIX DOWN BELOW [default = !]
-commandPrefix = ''
+commandPrefix = '!'
 #################################################
 
 #################################################
@@ -42,7 +42,7 @@ intents.message_content = True
 #Sets the "Activity" of the bot, defaults to 'Playing' but can be changed
 activityname = ''
 activity = nextcord.Activity(type=nextcord.ActivityType.playing, name=activityname)
-pandabot = commands.Bot(command_prefix='!', intents=intents, activity=activity)
+pandabot = commands.Bot(command_prefix=commandPrefix, intents=intents, activity=activity)
 
 #Console startup message
 @pandabot.event
